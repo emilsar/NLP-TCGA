@@ -1,0 +1,28 @@
+# Working clones / data — not tracked in NLP-TCGA
+tcga_data/
+guilopgar/
+papers/
+
+# Sister repo — has its own git history (NLP-textbook, private)
+textbook/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+venv/
+
+# Large/data files (in case anything escapes the dirs above)
+*.tar.gz
+*.zip
+*.p
+*.pkl
