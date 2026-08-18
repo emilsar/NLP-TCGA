@@ -6,6 +6,39 @@ This repo collects what's needed to decide whether to take on the project as a c
 
 ---
 
+## Course notebooks — cancer-type classification
+
+Open any notebook directly in Google Colab. The first cell downloads this repo (notebooks **and** data, ~100 MB) so everything just runs — no setup, no accounts, no local install.
+
+| # | Notebook | What it covers | Colab |
+|---|---|---|---|
+| 1 | `1-Compile_Dataset` | Joining report text to cancer-type labels by patient barcode | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/emilsar/NLP-TCGA/blob/main/notebooks/cancer_type/1-Compile_Dataset.ipynb) |
+| 2 | `2-Train_Val_Test_Split` | Train/validation/test splitting; checking label balance | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/emilsar/NLP-TCGA/blob/main/notebooks/cancer_type/2-Train_Val_Test_Split.ipynb) |
+| 3 | `3-Bag_of_Words` | Tokenization, stopwords, turning text into a count matrix | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/emilsar/NLP-TCGA/blob/main/notebooks/cancer_type/3-Bag_of_Words.ipynb) |
+| 4a | `4-BoW_LR` | Logistic regression; per-class performance; top words per cancer type | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/emilsar/NLP-TCGA/blob/main/notebooks/cancer_type/4-BoW_LR.ipynb) |
+| 4b | `4-BoW_RF` | Random forest on the same features, for comparison | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/emilsar/NLP-TCGA/blob/main/notebooks/cancer_type/4-BoW_RF.ipynb) |
+| 5 | `5-BoW_ML` | scikit-learn pipelines and hyperparameter search | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/emilsar/NLP-TCGA/blob/main/notebooks/cancer_type/5-BoW_ML.ipynb) |
+
+Notebooks are adapted from [guilopgar/AI-Campus-Project-7-NLP](https://github.com/guilopgar/AI-Campus-Project-7-NLP); the only change is an added setup cell at the top of each.
+
+### Data in this repo
+
+```
+data/
+├── corpus/TCGA_Reports.csv                    9,523 reports (barcode + text)
+└── cancer_type/
+    ├── tcga_patient_to_cancer_type.csv        labels, from TCGA clinical metadata
+    ├── tcga-tumor-types.csv                   code → full cancer name
+    ├── tcga_reports_cancer_type.csv           output of notebook 1
+    └── {train,val,test}_tcga_reports_...csv   output of notebook 2
+```
+
+All three layers are checked in, so any notebook runs standalone without running the ones before it.
+
+**One column is the feature** (`text`, the whole pathology report) and **one column is the target** (`cancer_type`, 32 classes).
+
+---
+
 ## The project
 
 **Source page:** https://cedars.nationalcampus.ai/project/32/
